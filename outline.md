@@ -16,101 +16,97 @@ From cryptography, to databases, to machine learning, and beyond a strong founda
 
 Accompanying each of these data structures is a small selection of algorithms for manipulating these data structures, specializations of the data structure, or algorithms that rely on these data structures. While the focus of this course is on conceptual fluency -- students will be asked to implement simple versions of some of these data structures in service of that goal.
 
-## Class 1: Abstractions, Memory, and Linear Data Structures
+## Class 1: Introduction to Complexity & Big O Notation
 
-In this class students will become (more) familiar with Big O notation and complexity theory. Students will learn about the most common complexity classes and order them from fast to slow, practice classifying code samples using Big O. Finally, students will wrestle some with the physical aspects of computer memory, and what it really means to have a collection of data by comparing and contrasting Arrays and Linked Lists.
+This lesson should give students a big picture view about why algorithms and computer science is important, as well as delve into the specifics of Big O.
 
-Themes:
+### Objectives
 
-* Algorithms are measured in terms of their input
-* Computer programming relies heavily on abstractions.
-* Our physical memory abstraction: a "block of continuous bits"
-* Pointers, references, and primitives all reside in the same memory.
+* Students can describe how they might interact with data structures and algorithms in their future careers.
+* Students know that algorithms are measured in terms of their input.
+* Students can identify important complexity classes.
+* Students can classify provided code or descriptions of an algorithm into the proper complexity class.
 
-Students should be able to:
+## Class 2: Linear Data Storage, Arrays and Linked Lists
 
-* Identify important complexity classes.
-* Classify provided code into the proper complexity class.
-* Describe pointers as indexes into "memory".
-* Describe the difference in structure between an array and a linked list.
-* Contrast the implementation of crucial operations in arrays vs linked lists, including performance implications:
-  * Append, pop
-  * Prepend, unshift
-  * Insert, remove
+This lesson teaches students about Arrays (as in C arrays) and Linked Lists.
 
-Suggested work:
+### Objectives
 
-* Implement a linked list?
+* Students can describe the difference between an Abstract Data Type and an implementation
+* Students can describe the difference between an Array and a Linked List
+* Students can compare and contrast the speed of operations in Arrays and Linked Lists
+* Students can implement and analyze a queue or stack backed by
+  * A Linked List
+  * An Array
 
-## Class 2: Specialized Linear Stores -- Stacks, Queues, Hash Tables
+## Class 3: Specialized Linear Stores -- Stacks & Queues
 
-In this class students will learn about the power of assumptions and limitations. Stacks, queues, and hash tables are limited versions of arrays (or possibly linked lists for stacks/queues) but those limitations give programmers the ability to make assumptions about the order of the data within them. These limitations have incredible and powerful consequences.
+In this lesson students will compare the implementations of stacks and queues based on their backing data structure (array or linked list) and apply these data structures to solve problems.
 
-Themes:
+### Objectives
 
-* Limitations are really strengths because they let us make assumptions about our data.
-* Specific implementation details impact the performance characteristics of abstract data types.
+* Students can describe stacks and queues as abstract data types
+  * Especially Last In First Out (LIFO) vs First In First Out (FIFO) properties
+* Students can implement and analyze a queue or stack backed by:
+  * A Linked List
+  * An Array
+* Students can use stacks and queues to solve problems.
 
-Students should be able to:
+## Class 4: Non-Lienar, Non-Hierarchical Storage -- Hashing and Hash Tables
 
-* Compare and contrast implementations of stacks/queues using arrays/linked lists.
-* Use stacks and queues to solve problems, and analyze their performance.
-* Describe the purpose of a hash function, and the crucial characteristics of an ideal hash function:
-  * Deterministic, probabilistically unique, uniformly distributed.
-* Describe the process of inserting into a hash table.
-* Solve problems using hash tables, and analyze their performance.
+This lesson is about hashing and hash tables.
 
-Suggested work:
+## Objectives
 
-* Implement a simple text editor API including undo/redo.
-* Parse arithmetic and apply the order of operations correctly.
-* Implement a stack and queue backed by an array. (should be very easy)
-* Count items in a list.
+* Students can describe a Hash Function and a Hash Table
+* Students can identify common uses of hash tables
+* Students can classify the performance of hash table operations using big o
+* Students know that collisions will occur, and that there are many ways to handle them.
+  * Students can specifically define chaining and linear probing (at a high level)
 
-## Class 3: Hierarchical Data -- Trees
+This lesson is about hashing and hash tables.
 
-In this class students are introduce to trees. Trees are a wildly popular data structure, found in The DOM (web), file systems, org charts and other social hierarchies, indexing systems (B-tree), and more. We examine the general usefulness of trees, a small sample of tree algorithms (breadth first search, depth first search), and a couple common specializations (Binary Search Tree, and Trie).
+## Class 5: Hierarchical Storage -- Introduction to Trees
 
-Themes:
+This lesson is about trees.
 
-* Lots of real world problems have hierarchical features.
-* Creating "artificial" hierarchy can be a powerful tactic to help solve a problem (BST & Trie are examples of this)
-* Trees and recursion have a very close relationship.
+## Objectives
 
-Students should be able to:
+* Students can define trees
+* Students can use important tree terminology (root, leaf, child...)
+* Students can identify various trees in computer programming
+* Students can implement BFS and DFS on trees
 
-* Identify data and real world problems that can be modeled by trees.
-* Describe the connection between recursion and trees.
-* Implement simple trees from scratch.
-* Implement BFS and DFS on trees.
-* Describe a binary search tree.
-* Describe a connection between "search trees" (BST and Trie are examples) and hash tables.
+## Class 6: Special Trees
 
-Suggested Work:
+This lesson is about a couple tree specializations; BSTs and Tries.
 
-* Implement BFS or DFS on The DOM.
-  * getById, then try querySelectorAll for a challenge.
+### Objectives
 
-## Class 4: Connected Data -- Graphs
+* Students can define binary search trees
+* Students can implement binary search on a BST
+* Students can identify the balance problem that AVL trees and Red-Black trees solve
+* Students can define Tries
+* Students can implement `valueExists` in a Trie
 
-In this class students are introduced to Graph Theory. Graphs are by far the most flexible of the fundamental data stores. In fact, trees and linked lists are just limited version of graphs. Students have learned previously that limitations are powerful, now we will see that flexibility has it's benefits. Graphs can be used to model just about any problem, and we will spend a lot of our time practicing the skill of translating real world problems into the language of Graph Theory.
+## Class 7: Storing Relational Data -- Introduction To Graphs
 
-Themes:
+This lesson is about graphs.
 
-* Graphs are extremely flexible as long as you let yourself think flexibly.
-* Real world problems frequently involve relationships between things -- graphs are the mathematics of relationships between things.
+### Objectives
 
-Students should be able to:
+* Students can define graphs and use graph terminology
+   * node/vertex, edge, directed/undirected, weighted/unweighted
+* Students can simulate BFS and DFS over graphs on whiteboard/paper
+* Students can write pseudocode for BFS and DFS on graphs
 
-* Compare and contrast trees and graphs.
-* Identify *many* examples of graphs in programs they have used.
-* Model real world problems using graph theory.
-* Describe at least one way a graph might be implemented.
-* Implement BFS and DFS on a provided graph API.
+## Class 8: Representing Graphs and Graph APIs
 
-Suggested Work:
+This class is about how to implement a graph API as well as how to implement BFS and DFS algorithm over a graph API.
 
-* Finding islands
-* Word Ladder
-* Kinghts tour
-* Solve a maze
+# Objectives
+
+* Students can describe how to use an adjacency list to represent a graph.
+* Students can describe how to use nested hash tables to implement a graph.
+* Students can implement BFS, DFS algorithm based on a graph API.

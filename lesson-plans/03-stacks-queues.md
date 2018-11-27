@@ -1,6 +1,6 @@
 # Stacks And Queues
 
-In this lesson students will compare the implementations of stacks and queues based on their backing data structure (array or linked list) and think about applying these data structures to solve problems.
+In this lesson students will compare the implementations of stacks and queues based on their backing data structure (array or linked list) and apply these data structures to solve problems.
 
 ## Learning Objectives
 

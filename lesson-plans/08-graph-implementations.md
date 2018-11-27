@@ -1,6 +1,6 @@
 # Graph Representations/Implementations
 
-This class is about how to implement a graph API as well as how to implement BFS, DFS, and Dijkstra's algorithm over a graph API.
+This class is about how to implement a graph API as well as how to implement BFS and DFS over a graph API.
 
 # Objectives
 
