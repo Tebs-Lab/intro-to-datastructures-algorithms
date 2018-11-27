@@ -4,29 +4,31 @@ In this lesson students will compare the implementations of stacks and queues ba
 
 ## Learning Objectives
 
-* Students can implement and analyze a queue or stack backed by
+* Students can describe stacks and queues as abstract data types
+  * Especially Last In First Out (LIFO) vs First In First Out (FIFO) properties
+* Students can implement and analyze a queue or stack backed by:
   * A Linked List
   * An Array
-
-#### REVIEW YESTERDAY'S HOMEWORK:
-
-* __THE BIG O EXERCISES__
-* __Discuss interesting bits of SinglyLinkedList__
+* Students can use stacks and queues to solve problems.
 
 #### Stacks (5 minutes)
 
-* Discussion: __What are stacks?__
-  * __Why are they used?__
-  * __Give some examples?__
-  * If I told you __"stacks are mainly for reversing things"__ what would you say?
-  * __What are some examples of stacks in programming?__
-  * *SIGN POSTING: We will be using these extensively in graph search.*
-    * *There are some problems that can be solved just with stacks like undo/redo, but some of the most interesting algorithms use stacks as an underlying support structure!*
-* A Simple ADT:
+* __What are stacks?__
+  * *Stacks are a Last In First Out data structure.*
+  * *Like a stack of plates, once you've put something on top you have to take it out before you can get the bottom plate.*
+* __Why are they used?__
+  * *They are commonly used when you need to "reverse" something*
+  * *Also when we need a log of what has happened*
+* __what are some examples?__
+  * *undo/redo in text editors is a good example*
+  * *The Call Stack is a great example—we call a series of functions then have to back out*
+  * *Depth first search uses a stack, as we'll see later in the course*
+* A minimal stack abstract data type could have 4 methods:
   * Push
   * Pop
   * Peak
   * Size
+* We can very easily use an array to create a Stack class in JavaScript:
 
 ```js
 class Stack {
@@ -55,18 +57,23 @@ class Stack {
 
 ## Queues (5 minutes)
 
-* Discussion: __What are queues?__
-  * __Why are they used?__
-  * __Give some examples?__
-  * If I told you __"queues are mainly for reversing things"__ what would you say?
-  * __What are some examples of queues in programming?__
-  * *SIGN POSTING: We will be using these extensively in graph search.*
-    * *There are some problems that can be solved just with queues like buffering data, but some of the most interesting algorithms use queues as an underlying support structure!*
+* __What are queues?__
+  * *The opposite of a stack, they maintain the order rather than reverse it*
+  * *First in first out*
+  * *Like a line at the store or anywhere humans line up*
+* __Why are they used?__
+  * *To maintain a list of things and keep them in order*
+* __Give some examples?__
+  * *The JS Event Queue, and process queuing in general*
+  * *Breadth First Search, as we'll see*
+  * *Buffering data*
+  * *Routers use Queues to prioritize routing internet traffic in the order it arrives*
 * A Simple ADT:
   * Enqueue
   * Dequeue
   * Peak
   * Size
+* Again: easy to implement using a JS array:
 
 ```js
 class Queue {
@@ -92,39 +99,33 @@ class Queue {
 }
 ```
 
-## Using an Array (15 minutes)
+## Using an Array (5-15 minutes)
 
-* __Pair Exercise: Describe how you'd use an array to implement a stack and a queue?__
-  * __Describe which array methods enqueue/dequeue use to modify the internal array__
-  * __Describe which array methods push/pop use to modify the internal array__
-  * __What are the Big O values of these operations?__
-    * __What if the array has to resize?__
-* *Instructor, give pairs ~5-10 minutes to answer these questions, then discuss them all as a group*
+* *Have students answer, then go over the answers as a class*
+* __Pair Exercise: Using the implementations above answer the following:__
+  * __What are the Big O values of push/pop and enqueue/dequeue in this implementation?__
+    * Push: O(1)
+    * Pop: O(1)
+    * Enqueue: O(n) (have to shift everything over one)
+    * Dequeue: O(1)
+    * *Don't forget: What if the array has to resize? These are all amortized constant time, not strictly constant time.*
 
-## Using a Linked List (15 minutes)
+## Using a Linked List (5-15 minutes)
 
+* *Have students answer, then go over the answers as a class*
 * __Pair Exercise: Describe how you'd use a Linked List to implement a stack and a queue?__
-  * __Would you use a double or single linked list?__
-    * __Why?__
-  * __Describe which array methods enqueue/dequeue use to modify the internal array__
-  * __Describe which array methods push/pop use to modify the internal array__
-  * __What are the Big O values of these operations?__
-    * __Is there something equivalent to resizing?__
-* *Instructor, give pairs ~5-10 minutes to answer these questions, then discuss them all as a group*
+  * *It would look very similar to the code above, because LinkedLists and Arrays share an Abstract Data Type!!*
+  * __What are the Big O values of push/pop and enqueue/dequeue in this implementation?__
+    * Push: O(1)
+    * Pop: O(1)
+    * Enqueue: O(1)
+    * Dequeue: O(1)
+    * *Unlike the array, these are truly constant, not amortized constant*
 
-## Stacks, "reversal", The Call Stack, and Recursion
+## Exercises
 
-* Fundamentally, stacks are about reversing the order of things, or replaying things in reverse order.
-* Matching Parens ...
-  * Show the problem
-  * __How can a stack be used for this??__
-  * *every new opening paren == push*
-  * *every new closing paren == pop and check*
-  * *at the end, check that the stack is empty*
-* Okay, how does the call stack work?
-* Short walkthrough recursive fib?
-
-## Class Exercises
-
-* Parsing Arithmetic -- write your own tests or use https://leetcode.com/problems/basic-calculator/description/
-* Collecting rain water -- https://leetcode.com/problems/trapping-rain-water/description/
+* Required: [Valid Parens](https://leetcode.com/problems/valid-parentheses/)
+* Required: [Implement a Stack Using Queues](https://leetcode.com/problems/implement-stack-using-queues/description/)
+* Easier Bonus: [Trapping rain water](https://leetcode.com/problems/trapping-rain-water/description/)
+* Challenging Bonus: [Parsing Arithmetic](https://leetcode.com/problems/basic-calculator/description/)
+* Note: Students will have to use queues/stacks to implement BFS/DFS later in the course. Both challenge problems are better suited for stacks.

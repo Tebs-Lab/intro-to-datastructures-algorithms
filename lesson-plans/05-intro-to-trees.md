@@ -46,18 +46,54 @@ function BFS(rootNode) {
   queue.push(rootNode);
 
   while (queue.length > 0) {  
-    let currentNode = queue.shift()
+    let currentNode = queue.shift();
+    console.log(currentNode.value);
     for(let child of currentNode.children) {
       queue.push(child);
     }
-
   }
 }
 ```
 
 * What about DFS?
-  * *Just change the stack to a queue*
-  * *But... there is another really cool way to use a stack called recursion!*
+  * *Just change the stack to a queue!*
+
+```js
+function DFS(rootNode) {
+  // Check that a root node exists.
+  if (rootNode === undefined) {
+    return;
+  }
+
+  let stack = [];
+  queue.push(rootNode);
+
+  while (queue.length > 0) {  
+    let currentNode = queue.pop();
+    console.log(currentNode.value);
+    for(let child of currentNode.children) {
+      queue.push(child);
+    }
+  }
+}
+```
+
+## Exercise: Simulate BFS/DFS (15 minutes)
+
+* Consider this tree:
+
+![simple-tree](resources/simple-tree.png)
+
+* __Simulate the execution of BFS and DFS on this tree__
+  * __Maintain the stack and queue explicitly!__
+  * __What order will the nodes be explored in?__
+    * *There are multiple right answers for both BFS and DFS depending on which order children are inserted into the stack/queue. Assuming child nodes are added left to right into the stack of queue:*
+      * *BFS: 9, 4, 17, 3, 6, 22, 5, 7, 20*
+      * *DFS: 9, 17, 22, 20, 4, 6, 7, 5, 3*
+
+## Stacks, Recursion, and Trees
+
+* Trees are a recursive data structure, and so they lend themselves to being processed recursively. Check out this recursive implementation of DFS:
 
 ```js
 function DFS(node, val) {
@@ -72,15 +108,15 @@ function DFS(node, val) {
       return returnedBelow;
     }
   }
-
-  // return undefined;
 }
 ```
 
-* Pretty beautifully simple right?
-  * *WORK AN EXAMPLE*
+* *Walk through the same tree, keeping track of the call stack explicitly*
 
 
 ## Exercises
 
-* Implement getElementsByClassName and getElementById -- you can use BFS or DFS!
+* [Path Sum](https://leetcode.com/problems/path-sum/description/)
+* [Path Sum II](https://leetcode.com/problems/path-sum-ii/description/)
+* Bonus: [Path Sum III](https://leetcode.com/problems/path-sum-iii/description/)
+* Bonus: [Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees/description/)

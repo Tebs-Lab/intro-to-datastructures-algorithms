@@ -4,7 +4,7 @@ This repository contains curriculum materials designed to help schools, educator
 
 The materials here are intended for use in a classroom setting. Students who wish to self-study the same material may find the lesson plans, suggested exercises, and solutions useful -- but to get the most out of these materials they should be presented by instructor who already has a strong understanding of data structures and algorithms.
 
-All of the materials in this repository have been released to the public domain. You may use them for any purpose you wish. If you want to support me, and enable me to create more public domain resources like these, consider [subscribing to my Patreon profile](www.patreon.com/tebslab). Additionally, if you want to hire me to teach these materials instead of teaching a course yourself, email me at teb@tebs-lab.com
+All of the materials in this repository have been released to the public domain. You may use them for any purpose you wish. If you want to support me, and enable me to create more public domain resources like these, consider [subscribing to my Patreon profile](www.patreon.com/tebslab). Additionally, if you want to contact me regarding these materials, please email me at teb@tebs-lab.com.
 
 ## Using These Resources
 
@@ -26,6 +26,6 @@ I use the whiteboard, cold calling, pair-share, and socratic discussions extensi
 
 ### Problems For Students
 
-Direct instruction can be helpful for students, especially when students are being introduced to new and abstract topics such as Big O notation and complexity theory. However, even the best socratic discussion will be in vein unless students put what they learned into practice. Every lesson plan also has a set of suggested exercises -- mostly programming problems hosted on websites like leetcode.com. I have carefully selected these problems to be relevant to the lesson objectives and to be appropriately difficult, with stretch/bonus problems for students who excel.
+Direct instruction can be helpful for students, especially when students are being introduced to new and abstract topics such as Big O notation and complexity theory. However, even the best socratic discussion will be in vein unless students put what they learned into practice. Every lesson plan also has a set of suggested exercises -- mostly programming problems hosted on websites such as leetcode.com. I have selected these problems to be relevant to the lesson objectives and to be appropriately difficult, with stretch/bonus problems for students who excel and want to dive deeper.
 
-In my own teaching, I strive to get students working on problems early and often. I prefer a ratio of something like 7:1 of time spent working to time spent receiving direct instruction. Some of the most valuable direct instruction periods in my classroom have been spent revisiting homework problems, and the most common mistakes made on an exercise.
+In my own teaching, I strive to get students working on problems early and often. Some of the most valuable direct instruction periods in my classroom have been spent revisiting homework problems, and addressing the most common mistakes/points of confusion as well as examining a particularly good solution.

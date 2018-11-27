@@ -23,7 +23,7 @@ This lesson should give students a big picture view about why algorithms and com
     * *systems for holding and processing data*
     * *array, hash table, stack, queue....*
     * *Does anyone want to say a JavaScript Object is a data structure?*
-    * *What about a database like Postgres?*
+    * *What about a database like Postgres? This is more like a collection of structures...*
   * __What about an algorithm, define that word? Give some examples?__
     * *A process for computing something*
   * __Who implements the data structures you use most often?__
@@ -46,25 +46,26 @@ This lesson should give students a big picture view about why algorithms and com
 * __What is Big O Notation?__
   * *An estimate of the time or space requirements of an algorithm*
   * *In terms of the input to the algorithm*
-  * There are some really technical definitions that I could give of Big O, involving complex F(G(x)) math jargon but they are honestly not helpful.
+  * There are some really technical definitions that I could give of Big O, involving complex F(G(x)) math jargon but they are honestly not very helpful.
 * __Why is Big O measured in terms of the input?__
-  * *It allows us to measure how the algorithm scales*
-  * *We rarely care about problems that are really small*
+  * *It allows us to measure how the algorithm scales as the input scales*
 * __Why measure time and space requirements?__
   * *Those are our two limiting factors, typically*
 * When we use Big O, we drop the constants and all but the "worst" factor involving 'n':
   * `3 + 5n + 2n^2` => `O(n^2)`
   * __Why do we do this?__
+    * *We rarely care about small input sizes. Slow algorithms still finish quickly for small input sizes*
     * *Big O only cares about what happens as n gets VERY large*
     * *Because this is a measure of how an algorithm scales, not a measurement of specific performance*
   * __Is this a weakness of big O?__
-    * *YES! Big O is always going to be a fuzzy lens into performance*
+    * *YES! Big O is always going to be a fuzzy lens into performance.*
     * *But it's still a useful lens*
   * __EVERYONE WRITES: a formula that highlights this weakness of big O__
-    * *I'm hoping for something like: `9999999999n + n^2` => O(n^2) but the large constant factor on n will clearly drive our performance in most realistic situations for n*
+    * *I'm hoping for something like: `9999999999n + n^2` => O(n^2). It's n-squared but the large constant factor on n will clearly drive our performance in most realistic situations. n generally won't be larger than 9999999999*
 * __What other weaknesses can you think of for big O?__
   * *Doesn't consider actual hardware at all*
   * *Memory usage, cache utilization, hard drive and network use will all have significant impact on performance but are not captured by Big O*
+  * *Might be worth mentioning that we can time/benchmark our actual programs as well*
 * Some closing thoughts:
   * You can compute the Big O of a "worst case" input or "best case" input - both are useful measurements!
   * It's often worth knowing what your actual dataset is, and computing big O over that case.
@@ -78,6 +79,7 @@ This lesson should give students a big picture view about why algorithms and com
 * __Compare your work with your neighbor__
   * Resolve any disagreements
 * __Graph all these functions -- doesn't have to be precise, big O is an estimate anyway right?__
+  * ![big o graph](resources/big-o-graph.png)
 
 * __Go over the answers as a class__
   * *THIS IS A REALLY GOOD TIME TO DEFINE A LOGARITHM, which people rarely understand.*
@@ -99,15 +101,23 @@ This lesson should give students a big picture view about why algorithms and com
 1. If we cannot sort either of the tables or use any external data structures, how can we join these tables? What's the big o?
   * O(a*b), which is "essentially" O(n^2)
 2. What if we sort the right table?
-  * What is the cost of sorting (reveal this as n log n)
+  * What is the cost of sorting (reveal this as n log n where n=size of the right table)
   * How can we do better than the above brute force?
     * *apply binary search*
-  * b log b + a log b
-  * How can we tell if we SHOULD do the sort? (b log b + a log b < a*b)
-    * (if b is very small, it's not worth it)
+  * So we get `O(b log b + a log b)`; `b log b` is the cost of sorting table b, then for each item in table a we perform a binary search over table b, which is the `a log b` part
+  * How can we tell if we SHOULD do the sort?
+    * `(b log b + a log b < a*b)`
+    * If b is very small, it's not worth it, but our database program can just do this comparison in constant time if the sizes of the tables are known.
 3. What if we sort both tables?
-  * What is the cost of sorting? (a log a + b log b)
-  * What is the best algorithm we can think of? (sort merge join, a+b (plus sorting cost))
+  * What is the cost of sorting?
+    * `a log a + b log b`
+  * What is the best algorithm we can think of?
+    * sort merge join:
+      * set a pointer at the start of each sorted table.
+      * advance the pointer on table b until the value is larger than the one at the pointer for table a.
+      * advance the pointer on table a one place.
+      * repeat the previous two steps until we're done.
+    * We look at every item in the two tables exactly once: `a+b` (plus the cost of sorting both tables)
   * How can we tell if we SHOULD do the sort?
 4. What if we can use an external hash table?
   * Whats the algorithm? (hash join -- hash entries in table b then join to the hash)
@@ -130,6 +140,8 @@ function multiply(a, b) {
 }
 ```
 
+O(a)
+
 ```js
 // Assume a and b are integers
 function multiplyTwo(a, b) {
@@ -142,6 +154,9 @@ function multiplyTwo(a, b) {
       sum += smaller;
     }
 
+    // You may need to explain that this is division and multiplication by 2.
+    // If you want to avoid that conversation for now, change these to plain
+    // integer division and multiplication. 
     bigger = bigger >> 1;
     smaller = smaller << 1;
   }
@@ -149,6 +164,8 @@ function multiplyTwo(a, b) {
   return sum;
 }
 ```
+
+O(log(max(a, b)))
 
 ```js
 // Assume students is an array of integers
@@ -162,6 +179,8 @@ function computePairs(students) {
 }
 ```
 
+O(n^2 * m) where n is the length of the students array, and m is the average of the values in students.
+
 ```js
 // Assume students is an array of integers
 function computePairsTwo(students) {
@@ -173,3 +192,5 @@ function computePairsTwo(students) {
   }
 }
 ```
+
+O(n^2 * log(m)) where n is the length of the students array, and m is the average of the values in students.
