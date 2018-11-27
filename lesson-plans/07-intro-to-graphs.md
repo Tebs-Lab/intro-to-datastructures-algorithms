@@ -100,6 +100,10 @@ function BFS(startNode, goalNode) {
   * *Either, in the explored list keep track of the 'parent' node when we explore each node*
   * *Or maintain a growing list of the path so far for each new node we visit*
   * *Next class we'll revisit and look at code that does this*
+* __Does DFS return the shortest path?__
+  * *It might, but it isn't sure to*
+* __What about BFS?__
+  * *Yes, always*
 
 ## Exercise:
 
