@@ -44,7 +44,7 @@ This lesson is about hashing and hash tables.
 * Example of a hash function, "Prime Modulo" strategy:
 ```js
 function hash(key) {
-  return (key * 31) % sizeOfArray;
+  return (key * 13) % sizeOfArray;
 }
 ```
 * *Note that we assume the key is an integer in this case*
