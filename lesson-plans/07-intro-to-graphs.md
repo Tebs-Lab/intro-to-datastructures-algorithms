@@ -93,7 +93,7 @@ function BFS(startNode, goalNode) {
 }
 ```
 
-* DFS uses the frontier as a stack insead of a queue, the only difference is that we pop instead of shift on the line `currentNode = frontier.shift()`
+* DFS uses the frontier as a stack instead of a queue, the only difference is that we pop instead of shift on the line `currentNode = frontier.shift()`
 * __Exercise: repeat the BFS and DFS from above, but this time explicitly keep track of the frontier and the explored list.__
   * *Follow the pseudocode carefully, note how in DFS the cycle B->D->E->D is avoided by the explored list.*
 * __Okay, now the tricky part: our current implementation does not return the path, it just returns true or false indicating the existance of a path. How could we change our algorithm to return the path?__

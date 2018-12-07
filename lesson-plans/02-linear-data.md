@@ -93,7 +93,6 @@ class List {
 }
 ```
 
-
 ## Exercise: Comparing Performance (10-15 minutes)
 
 * For each, ask students to (in pairs) define the big O of these operations in both Arrays and Linked Lists:
