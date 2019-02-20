@@ -4,7 +4,7 @@ This repository contains curriculum materials designed to help schools, educator
 
 The materials here are intended for use in a classroom setting. Students who wish to self-study the same material may find the lesson plans, suggested exercises, and solutions useful -- but to get the most out of these materials they should be presented by instructor who already has a strong understanding of data structures and algorithms.
 
-All of the materials in this repository have been released to the public domain. You may use them for any purpose you wish. If you want to support me, and enable me to create more public domain resources like these, consider [subscribing to my Patreon profile](www.patreon.com/tebslab). Additionally, if you want to contact me regarding these materials, please email me at teb@tebs-lab.com.
+All of the materials in this repository have been released to the public domain. You may use them for any purpose you wish. If you want to support me, and enable me to create more public domain resources like these, consider [subscribing to my Patreon profile](https://www.patreon.com/tebslab). Additionally, if you want to contact me regarding these materials, please email me at teb@tebs-lab.com.
 
 ## Using These Resources
 
